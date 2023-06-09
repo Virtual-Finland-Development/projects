@@ -14,6 +14,7 @@ The project is stored in the following code repositories:
 - [Infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)
   - Protected VPC
   - OpenId Connect Provider for CI/CD-pipeline authentication
+  - Shared policies etc
 - [Codesets](https://github.com/Virtual-Finland-Development/codesets)
   - Implements the ESCO API
 

@@ -14,6 +14,7 @@ The project is stored in the following code repositories:
 - [Infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)
   - Protected VPC
   - OpenId Connect Provider for CI/CD-pipeline authentication
+  - Shared policies etc
 - [Virtual Finland MVP](https://github.com/Virtual-Finland-Development/virtual-finland)
   - The graphical user interface of the project
 - [Users API](https://github.com/Virtual-Finland-Development/users-api)
