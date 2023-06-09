@@ -1,6 +1,6 @@
 # Projects
 
-Meta repository for Virtual Finland project deployments
+Meta-repository for Virtual Finland project deployments
 
 ## The Virtual Finland MVP-application project
 
