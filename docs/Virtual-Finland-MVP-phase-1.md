@@ -17,6 +17,8 @@ The project is stored in the following code repositories:
   - Shared policies etc
 - [Codesets](https://github.com/Virtual-Finland-Development/codesets)
   - Implements the ESCO API
+- [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
+  - Service operation dashboards
 
 The component relationships are as follows:
 

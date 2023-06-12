@@ -26,6 +26,8 @@ The project is stored in the following code repositories:
 - [Codesets](https://github.com/Virtual-Finland-Development/codesets)
   - Serve static assets (lists of specifications etc) for the project
   - Implements the ESCO API
+- [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
+  - Service operation dashboards
 
 The component relationships are as follows:
 
