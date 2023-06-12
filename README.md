@@ -8,7 +8,7 @@ The project is partitioned to the following engagement phases:
 
 - Phase 1:
   - provide production ready infrastructure for the project
-  - provide an ESCO API implementation
+  - provide ESCO API implementation
   - read more at [./docs/Virtual-Finland-MVP-phase-1.md](./docs/Virtual-Finland-MVP-phase-1.md)
 - Phase 2:
   - dataspace endpoints for job search related personal data
