@@ -22,7 +22,10 @@ runs:
       shell: bash
     - name: Resolve the workflow job id
       id: status
-      run: echo "::set-output name=job-id::$(gh run list -R ${{ inputs.organization }}/${{ inputs.repository }} -w ${{ inputs.workflow }} -L1 --json databaseId --jq .[0].databaseId)"
+      run: |
+        sleep 5
+        JOB_ID=$(gh run list -R ${{ inputs.organization }}/${{ inputs.repository }} -w ${{ inputs.workflow }} -L1 --json databaseId --jq .[0].databaseId)
+        echo "job-id=${JOB_ID}" >> $GITHUB_STATE
       shell: bash
     - name: Wait for the deployment workflow to finish
       run: gh run watch -R ${{ inputs.organization }}/${{ inputs.repository }} ${{ steps.status.outputs.job-id }}
