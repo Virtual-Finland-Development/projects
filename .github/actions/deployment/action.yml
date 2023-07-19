@@ -19,8 +19,11 @@ runs:
   steps:
     - name: Start the deployment workflow
       run: gh workflow run ${{ inputs.workflow }} -R ${{ inputs.organization }}/${{ inputs.repository }} -f environment=${{ inputs.environment }}
+      shell: bash
     - name: Resolve the workflow job id
       id: status
       run: echo "::set-output name=job-id::$(gh run list -R ${{ inputs.organization }}/${{ inputs.repository }} -w ${{ inputs.workflow }} -L1 --json databaseId --jq .[0].databaseId)"
+      shell: bash
     - name: Wait for the deployment workflow to finish
       run: gh run watch -R ${{ inputs.organization }}/${{ inputs.repository }} ${{ steps.status.outputs.job-id }}
+      shell: bash
