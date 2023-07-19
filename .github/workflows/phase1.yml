@@ -1,0 +1,21 @@
+name: 'Deploy MVP Phase 1'
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+
+jobs:
+    codesets:
+      uses: Virtual-Finland-Development/codesets/.github/workflows/build-test-deploy.yml@main
+      secrets: inherit
+      with:
+        environment: ${{ inputs.environment }}
+    monitoring:
+      uses: Virtual-Finland-Development/monitoring/.github/workflows/publish-codesets-dashboard-to-environment.yml@main
+      secrets: inherit
+      with:
+        environment: ${{ inputs.environment }}
+            
