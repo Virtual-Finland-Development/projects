@@ -12,17 +12,15 @@ The project is deployed to the following environments:
 The project is stored in the following code repositories:
 
 - [Infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)
-  - Protected VPC
   - OpenId Connect Provider for CI/CD-pipeline authentication
   - Shared policies etc
+  - Must be manually deployed at initial setup deployment
 - [Virtual Finland MVP](https://github.com/Virtual-Finland-Development/virtual-finland)
   - The graphical user interface of the project
 - [Users API](https://github.com/Virtual-Finland-Development/users-api)
+  - Protected VPC
   - The API for the personal data of the users
   - Database
-- [Authentication Gateway](https://github.com/Virtual-Finland-Development/authentication-gw)
-  - Handle the authentication flow with the external authentication providers:
-    - Sinuna
 - [Codesets](https://github.com/Virtual-Finland-Development/codesets)
   - Serve static assets (lists of specifications etc) for the project
   - Implements the ESCO API
