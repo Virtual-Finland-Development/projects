@@ -1,0 +1,25 @@
+name: 'Deployment'
+description: 'Dispatches the deployment workflow of a repository and waits for it to finish'
+inputs:
+  environment:
+    description: 'Environment where to deploy the stack (dev, staging)'
+    required: true
+  repository:
+    description: 'Repository name (without the organization name prefix)'
+    required: true
+  organization:
+    description: 'Repository organization'
+    required: false
+    default: 'Virtual-Finland-Development'
+  workflow:
+    description: 'Workflow name to dispatch (eg. build-test-deploy.yml)'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Start the deployment workflow
+      - run: |
+          gh workflow run ${{ inputs.workflow }} -R ${{ inputs.organization }}/${{ inputs.repository }} -f environment=${{ inputs.environment }}
+    - name: Wait for the deployment workflow to finish
+      - run: |
+          gh run watch -R ${{ inputs.organization }}/${{ inputs.repository }} $(gh run list -R ${{ inputs.organization }}/${{ inputs.repository }} -w ${{ inputs.workflow }} -L1 --json databaseId --jq .[0].databaseId)

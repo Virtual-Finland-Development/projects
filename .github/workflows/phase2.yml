@@ -3,29 +3,43 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: 'Deployment environment'
         required: true
         default: 'dev'
 
 jobs:
-    codesets:
-      uses: Virtual-Finland-Development/codesets/.github/workflows/build-test-deploy.yml@main
-      secrets: inherit
-      with:
-        environment: ${{ inputs.environment }}
-    usersApi:
-        uses: Virtual-Finland-Development/users-api/.github/workflows/deploy-to-environment.yml@main
-        secrets: inherit
+  codesets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
-    mvpApp:
-      uses: Virtual-Finland-Development/virtual-finland/.github/workflows/test-and-deploy-mvp.yml.yml@main
-      secrets: inherit
-      with:
-        environment: ${{ inputs.environment }}
-    monitoring:
-      uses: Virtual-Finland-Development/monitoring/.github/workflows/publish-codesets-dashboard-to-environment.yml@main
-      secrets: inherit
-      with:
-        environment: ${{ inputs.environment }}
-            
+          repository: codesets
+          workflow: build-test-deploy.yml
+  usersApi:
+    runs-on: ubuntu-latest
+    needs: [codesets]
+    steps:
+      - uses: ./actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: users-api
+          workflow: deploy-to-environment.yml
+  mvpApp:
+    runs-on: ubuntu-latest
+    needs: [codesets]
+    steps:
+      - uses: ./actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: virtual-finland
+          workflow: test-and-deploy-mvp.yml
+  monitoring:
+    runs-on: ubuntu-latest
+    needs: [codesets]
+    steps:
+      - uses: ./actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
+          workflow: publish-codesets-dashboard-to-environment.yml

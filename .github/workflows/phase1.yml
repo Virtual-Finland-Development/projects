@@ -3,7 +3,8 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Environment to deploy to'
+        description: 'Deployment environment'
+        type: environment
         required: true
         default: 'dev'
 
@@ -14,15 +15,17 @@ jobs:
   codesets:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          gh workflow run build-test-deploy.yml -R Virtual-Finland-Development/codesets -f environment=${{ inputs.environment }}
-          sleep 5
-          gh run watch -R Virtual-Finland-Development/codesets $(gh run list -R Virtual-Finland-Development/codesets -w build-test-deploy.yml -L1 --json databaseId --jq .[0].databaseId)
+      - uses: ./actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: codesets
+          workflow: build-test-deploy.yml
   monitoring:
     runs-on: ubuntu-latest
     needs: [codesets]
     steps:
-      - run: |
-          gh workflow run publish-codesets-dashboard-to-environment.yml -R Virtual-Finland-Development/monitoring -f environment=${{ inputs.environment }}
-          sleep 5
-          gh run watch -R Virtual-Finland-Development/monitoring $(gh run list -R Virtual-Finland-Development/monitoring -w publish-codesets-dashboard-to-environment.yml -L1 --json databaseId --jq .[0].databaseId)
+      - uses: ./actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
+          workflow: publish-codesets-dashboard-to-environment.yml
