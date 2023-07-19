@@ -15,7 +15,7 @@ jobs:
   codesets:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./actions/deployment@main
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
           repository: codesets
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [codesets]
     steps:
-      - uses: ./actions/deployment@main
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
           repository: monitoring
