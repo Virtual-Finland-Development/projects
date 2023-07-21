@@ -52,10 +52,20 @@ jobs:
           workflow: test-and-deploy-mvp.yml
   monitoring:
     runs-on: ubuntu-latest
-    needs: [infrastructure, codesets]
+    needs: [infrastructure, codesets, usersApi, mvpApp]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
           repository: monitoring
+          workflow: publish-cloudfront-log-forwarder-to-environment.yml
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
           workflow: publish-codesets-dashboard-to-environment.yml
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
+          workflow: publish-aws-dashboard-to-environment.yml

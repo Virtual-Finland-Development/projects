@@ -41,4 +41,9 @@ jobs:
         with:
           environment: ${{ inputs.environment }}
           repository: monitoring
+          workflow: publish-cloudfront-log-forwarder-to-environment.yml
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
           workflow: publish-codesets-dashboard-to-environment.yml

@@ -20,10 +20,6 @@ The project is stored in the following code repositories:
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards
 
-The component relationships are as follows:
-
-![Component Relationships](./images/vf-mvp-phase-1-component-relationships.png)
-
 ## Deployment
 
-The project is deployed using the Github Actions CI/CD-pipeline defined here: [./.github/workflows/deploy-vf-mvp-phase1.yml](../.github/workflows/deploy-vf-mvp-phase1.yml). The deployments are only started manually.
+The project is deployed using the Github Actions CI/CD-pipeline defined here: [./.github/workflows/phase1.yml](../.github/workflows/phase1.yml). The deployments are only started manually.
