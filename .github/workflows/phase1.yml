@@ -12,8 +12,17 @@ env:
   GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
 
 jobs:
+  infrastructure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: infrastructure
+          workflow: test.yml
   codesets:
     runs-on: ubuntu-latest
+    needs: infrastructure
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -22,7 +31,7 @@ jobs:
           workflow: build-test-deploy.yml
   monitoring:
     runs-on: ubuntu-latest
-    needs: [codesets]
+    needs: codesets
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
