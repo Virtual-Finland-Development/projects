@@ -18,6 +18,7 @@ concurrency:
 jobs:
   infrastructure:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -26,6 +27,7 @@ jobs:
           workflow: test.yml
   codesets:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     needs: infrastructure
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
@@ -35,6 +37,7 @@ jobs:
           workflow: build-test-deploy.yml
   monitoring:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     needs: codesets
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
