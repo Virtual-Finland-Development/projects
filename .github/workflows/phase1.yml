@@ -11,6 +11,10 @@ on:
 env:
   GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
 
+concurrency:
+  group: deployment-${{ inputs.environment }}
+  cancel-in-progress: true
+
 jobs:
   infrastructure:
     runs-on: ubuntu-latest
