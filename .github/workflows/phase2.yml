@@ -52,7 +52,7 @@ jobs:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
-          repository: virtual-finland
+          repository: access-finland
           workflow: test-and-deploy-mvp.yml
   monitoring:
     runs-on: ubuntu-latest
