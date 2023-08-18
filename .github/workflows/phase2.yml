@@ -4,6 +4,7 @@ on:
     inputs:
       environment:
         description: 'Deployment environment'
+        type: environment
         required: true
         default: 'dev'
 
