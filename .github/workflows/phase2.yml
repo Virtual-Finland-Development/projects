@@ -48,7 +48,7 @@ jobs:
   mvpApp:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure, codesets]
+    needs: [infrastructure, codesets, usersApi]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
