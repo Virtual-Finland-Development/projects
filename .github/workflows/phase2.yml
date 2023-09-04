@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   infrastructure:
+    name: "Infrastructure on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
@@ -26,6 +27,7 @@ jobs:
           repository: infrastructure
           workflow: test.yml
   codesets:
+    name: "Codesets on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: [infrastructure]
@@ -36,6 +38,7 @@ jobs:
           repository: codesets
           workflow: build-test-deploy.yml
   usersApi:
+    name: "Users API on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: [infrastructure, codesets]
@@ -46,6 +49,7 @@ jobs:
           repository: users-api
           workflow: deploy-to-environment.yml
   mvpApp:
+    name: "MVP App on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: [infrastructure, codesets, usersApi]
@@ -56,6 +60,7 @@ jobs:
           repository: access-finland
           workflow: deploy-af-mvp.yml
   monitoring:
+    name: "Monitoring on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: [infrastructure, codesets, usersApi, mvpApp]
