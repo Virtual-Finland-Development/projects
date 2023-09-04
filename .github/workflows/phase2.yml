@@ -1,12 +1,12 @@
-name: 'Deploy MVP Phase 2'
+name: "Deploy MVP Phase 2"
 on:
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Deployment environment'
+        description: "Deployment environment"
         type: environment
         required: true
-        default: 'dev'
+        default: "dev"
 
 env:
   GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
@@ -54,7 +54,7 @@ jobs:
         with:
           environment: ${{ inputs.environment }}
           repository: access-finland
-          workflow: test-and-deploy-mvp.yml
+          workflow: deploy-af-mvp.yml
   monitoring:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
