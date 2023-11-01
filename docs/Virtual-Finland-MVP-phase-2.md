@@ -15,7 +15,7 @@ The project is stored in the following code repositories:
   - OpenId Connect Provider for CI/CD-pipeline authentication
   - Shared policies etc
   - Must be manually deployed at initial setup deployment
-- [Virtual Finland MVP](https://github.com/Virtual-Finland-Development/virtual-finland)
+- [Access Finland MVP](https://github.com/Virtual-Finland-Development/access-finland)
   - The graphical user interface of the project
 - [Users API](https://github.com/Virtual-Finland-Development/users-api)
   - Protected VPC
