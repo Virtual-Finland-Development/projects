@@ -15,7 +15,7 @@ The project is stored in the following code repositories:
   - OpenId Connect Provider for CI/CD-pipeline authentication
   - Shared policies etc
   - Must be manually deployed at initial setup deployment
-- [Codesets](https://github.com/Virtual-Finland-Development/codesets)
+- [Esco API](https://github.com/Virtual-Finland-Development/esco-api)
   - Implements the ESCO API
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards

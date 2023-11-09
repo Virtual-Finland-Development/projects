@@ -26,11 +26,22 @@ jobs:
           environment: ${{ inputs.environment }}
           repository: infrastructure
           workflow: test.yml
+  escoApi:
+    name: "Esco API on ${{ inputs.environment }}"
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    needs: [infrastructure]
+    steps:
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: esco-api
+          workflow: build-test-deploy.yml
   codesets:
     name: "Codesets on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure]
+    needs: [infrastructure, escoApi]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
