@@ -27,6 +27,7 @@ The project is stored in the following code repositories:
   - Serve static assets (lists of specifications etc) for the project
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards
+  - Service error alerts
 
 ## Deployment
 

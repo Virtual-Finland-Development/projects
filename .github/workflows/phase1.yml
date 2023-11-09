@@ -26,11 +26,22 @@ jobs:
           environment: ${{ inputs.environment }}
           repository: infrastructure
           workflow: test.yml
-  codesets:
-    name: "Esco API on ${{ inputs.environment }}"
+  alerts:
+    name: "Alerts on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: infrastructure
+    steps:
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
+          workflow: publish-cloudwatch-logs-alerts-to-environment.yml
+  escoApi:
+    name: "Esco API on ${{ inputs.environment }}"
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    needs: [infrastructure, alerts]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -41,7 +52,7 @@ jobs:
     name: "Monitoring on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: codesets
+    needs:  [infrastructure, alerts, escoApi]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
