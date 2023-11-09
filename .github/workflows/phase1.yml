@@ -27,7 +27,7 @@ jobs:
           repository: infrastructure
           workflow: test.yml
   codesets:
-    name: "Codesets on ${{ inputs.environment }}"
+    name: "Esco API on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs: infrastructure
@@ -35,7 +35,7 @@ jobs:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
           environment: ${{ inputs.environment }}
-          repository: codesets
+          repository: esco-api
           workflow: build-test-deploy.yml
   monitoring:
     name: "Monitoring on ${{ inputs.environment }}"
