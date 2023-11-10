@@ -47,7 +47,7 @@ jobs:
         with:
           environment: ${{ inputs.environment }}
           repository: esco-api
-          workflow: build-test-deploy.yml
+          workflow: deployment.yml
   codesets:
     name: "Codesets on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
