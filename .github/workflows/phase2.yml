@@ -78,7 +78,7 @@ jobs:
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
-          environment: ${{ inputs.environment }}
+          environment: ${{ inputs.environment == 'dev' && 'mpv-dev' || inputs.environment }}
           repository: access-finland
           workflow: deploy-af-mvp.yml
   monitoring:
