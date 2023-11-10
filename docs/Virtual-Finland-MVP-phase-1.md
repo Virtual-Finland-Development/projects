@@ -19,6 +19,7 @@ The project is stored in the following code repositories:
   - Implements the ESCO API
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards
+  - Service error alerts
 
 ## Deployment
 
