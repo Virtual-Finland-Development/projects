@@ -20,7 +20,7 @@ The project is stored in the following code repositories:
   - Must be manually deployed at initial deployment
 - [Esco API](https://github.com/Virtual-Finland-Development/esco-api)
   - Implements the ESCO API
-  - Bun / TypeScript applicaiton running with AWS Lambda
+  - Bun / TypeScript application running with AWS Lambda
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards
   - Service error alerts

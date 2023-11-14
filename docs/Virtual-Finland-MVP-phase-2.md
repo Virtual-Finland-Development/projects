@@ -28,7 +28,7 @@ The project is stored in the following code repositories:
   - Postgresql database running with AWS RDS Aurora
 - [Esco API](https://github.com/Virtual-Finland-Development/esco-api)
   - Implements the ESCO API  
-  - Bun / TypeScript applicaiton running with AWS Lambda
+  - Bun / TypeScript application running with AWS Lambda
 - [Codesets](https://github.com/Virtual-Finland-Development/codesets)
   - Serve static assets (lists of specifications etc) for the project
   - Node.js / TypeScript application running with AWS Cloudfront, Lambda@Edge and S3
