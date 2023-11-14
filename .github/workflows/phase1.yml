@@ -15,7 +15,7 @@ on:
         required: true
 
 concurrency:
-  group: deployment-${{ inputs.environment }}
+  group: phase1-${{ inputs.environment }}
   cancel-in-progress: true
 
 jobs:

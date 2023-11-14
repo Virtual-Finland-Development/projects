@@ -9,7 +9,7 @@ on:
         default: "dev"
 
 concurrency:
-  group: deployment-${{ inputs.environment }}
+  group: phase2-${{ inputs.environment }}
   cancel-in-progress: true
 
 jobs:
