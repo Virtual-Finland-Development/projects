@@ -8,46 +8,17 @@ on:
         required: true
         default: "dev"
 
-env:
-  GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
-
 concurrency:
   group: deployment-${{ inputs.environment }}
   cancel-in-progress: true
 
 jobs:
-  infrastructure:
-    name: "Infrastructure on ${{ inputs.environment }}"
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    steps:
-      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+  deploy-phase1:
+        uses: .github/workflows/phase1.yml@main
+        secrets: inherit
         with:
           environment: ${{ inputs.environment }}
-          repository: infrastructure
-          workflow: test.yml
-  alerts:
-    name: "Alerts on ${{ inputs.environment }}"
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    needs: infrastructure
-    steps:
-      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
-        with:
-          environment: ${{ inputs.environment }}
-          repository: monitoring
-          workflow: publish-cloudwatch-logs-alerts-to-environment.yml
-  escoApi:
-    name: "Esco API on ${{ inputs.environment }}"
-    runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
-    needs: [infrastructure, alerts]
-    steps:
-      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
-        with:
-          environment: ${{ inputs.environment }}
-          repository: esco-api
-          workflow: deployment.yml
+          deploy_monitoring: false
   codesets:
     name: "Codesets on ${{ inputs.environment }}"
     runs-on: ubuntu-latest

@@ -3,13 +3,26 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Deployment environment"
+        description: Deployment environment
         type: environment
         required: true
         default: "dev"
-
-env:
-  GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
+      deploy_monitoring:
+        description: Deploy monitoring
+        type: boolean
+        required: false
+        default: true
+  workflow_call:
+    inputs:
+      environment:
+        description: Deployment environment
+        type: string
+        required: true
+      deploy_monitoring:
+        description: Deploy monitoring
+        type: boolean
+        required: false
+        default: true
 
 concurrency:
   group: deployment-${{ inputs.environment }}
@@ -50,6 +63,7 @@ jobs:
           workflow: deployment.yml
   monitoring:
     name: "Monitoring on ${{ inputs.environment }}"
+    if : ${{ github.event.inputs.deploy_monitoring == 'true' }}
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     needs:  [infrastructure, alerts, escoApi]
