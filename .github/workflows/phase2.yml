@@ -18,12 +18,11 @@ jobs:
         secrets: inherit
         with:
           environment: ${{ inputs.environment }}
-          deploy_monitoring: false
   codesets:
     name: "Codesets on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure, alerts, escoApi]
+    needs: [deploy-phase1]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -34,7 +33,7 @@ jobs:
     name: "Users API on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure, alerts, codesets]
+    needs: [deploy-phase1, codesets]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -45,7 +44,7 @@ jobs:
     name: "MVP App on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure, alerts, codesets, usersApi]
+    needs: [deploy-phase1, codesets, usersApi]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
@@ -56,7 +55,7 @@ jobs:
     name: "Monitoring on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    needs: [infrastructure, codesets, usersApi, mvpApp]
+    needs: [deploy-phase1, codesets, usersApi, mvpApp]
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
