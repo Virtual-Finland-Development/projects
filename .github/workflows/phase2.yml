@@ -12,6 +12,9 @@ concurrency:
   group: phase2-${{ inputs.environment }}
   cancel-in-progress: true
 
+env:
+  GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
+
 jobs:
   deploy-phase1:
         uses: Virtual-Finland-Development/projects/.github/workflows/phase1.yml@main
