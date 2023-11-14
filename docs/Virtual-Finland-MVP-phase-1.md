@@ -13,10 +13,11 @@ The project is stored in the following code repositories:
 
 - [Infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)
   - OpenId Connect Provider for CI/CD-pipeline authentication
-  - Shared policies etc
-  - Must be manually deployed at initial setup deployment
+  - Shared Pulumi policies etc
+  - Must be manually deployed at initial deployment
 - [Esco API](https://github.com/Virtual-Finland-Development/esco-api)
   - Implements the ESCO API
+  - Bun / TypeScript applicaiton running with AWS Lambda
 - [Monitoring](https://github.com/Virtual-Finland-Development/monitoring)
   - Service operation dashboards
   - Service error alerts
