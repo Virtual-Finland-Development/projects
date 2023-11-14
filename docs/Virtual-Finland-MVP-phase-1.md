@@ -9,6 +9,9 @@ The project is deployed to the following environments:
 
 ## Project Components
 
+![Phase 1](phase1.png "Phase 1 Components")
+
+
 The project is stored in the following code repositories:
 
 - [Infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)
