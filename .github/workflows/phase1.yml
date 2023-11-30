@@ -28,6 +28,7 @@ jobs:
     name: "Infrastructure on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
+    permissions: write-all
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
