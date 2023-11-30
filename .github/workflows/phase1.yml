@@ -19,16 +19,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-permissions: write-all
+  GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
 
 jobs:
   infrastructure:
     name: "Infrastructure on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
-    permissions: write-all
     steps:
       - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
         with:
