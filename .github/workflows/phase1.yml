@@ -18,9 +18,6 @@ concurrency:
   group: phase1-${{ inputs.environment }}
   cancel-in-progress: true
 
-env:
-  GH_TOKEN: ${{ secrets.VFD_PROJECTS_PAT }}
-
 jobs:
   infrastructure:
     name: "Infrastructure on ${{ inputs.environment }}"
