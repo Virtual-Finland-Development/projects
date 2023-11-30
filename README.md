@@ -14,3 +14,7 @@ The project is partitioned to the following engagement phases:
   - dataspace endpoints for job search related personal data
   - self-service type application for the users to manage their personal data
   - read more at [./docs/Virtual-Finland-MVP-phase-2.md](./docs/Virtual-Finland-MVP-phase-2.md)
+
+## Setup from scratch
+
+- [./docs/Setup-from-scratch.md](./docs/Setup-from-scratch.md)
