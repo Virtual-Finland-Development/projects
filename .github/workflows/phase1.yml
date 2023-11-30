@@ -21,6 +21,8 @@ concurrency:
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+permissions: write-all
+
 jobs:
   infrastructure:
     name: "Infrastructure on ${{ inputs.environment }}"
