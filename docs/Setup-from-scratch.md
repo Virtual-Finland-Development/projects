@@ -6,6 +6,7 @@ To setup the project from scratch, there are a few steps to take and a few prere
 
 - A pulumi account with an organization
 - Locally installed pulumi cli tool
+- AWS account with configured local access for cli tools
 
 ## The steps
 
