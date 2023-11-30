@@ -33,10 +33,9 @@ runs:
     - name: Check if the deployment workflow succeeded and fail if bad status
       id: deployment-status
       run: |
-        STATUS=$(gh run view ${{ steps.status.outputs.job-id }} -R ${{ inputs.organization }}/${{ inputs.repository }} --json --jq .conclusion)
+        STATUS=$(gh run view ${{ steps.status.outputs.job-id }} -R ${{ inputs.organization }}/${{ inputs.repository }} --json conclusion --jq .conclusion)
         if [ "$STATUS" != "success" ]; then
           echo "Deployment workflow failed"
-          echo $STATUS
           exit 1
         fi        
       shell: bash
