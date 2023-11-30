@@ -18,8 +18,10 @@ To setup the project from scratch, there are a few steps to take and a few prere
 - `VFD_PROJECTS_PAT`, TODO: what is this?
 - In each repository (phase 1 and/or phase 2) github page, create a new deployment environment that is named to match the intented stack name (eg. dev, staging)
   - Settings -> Environments -> New environment
-- In the infrastructure repository with a command line tool, create a new stack that matches the name of the deployment environment:
-    - pulumi stack init <pulumi-organization>/<stack-name>, eg. `pulumi stack init virtual-finland/dev`
-- In the infrastructure repository with a command line tool, manually deploy the stack:
+- In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, create a new stack that matches the name of the deployment environment:
+    - pulumi stack select <pulumi-organization>/<stack-name> --create
+      - eg. `pulumi stack select virtual-finland/dev --create`
+- In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, manually deploy the stack:
     - `pulumi up`
-- In the projects repository github actions page run the phase 1 or phase 2 deployment.
+- In the [projects](https://github.com/Virtual-Finland-Development/projects) repository github actions page run the phase 1 or phase 2 deployment
+- In the [monitoring](https://github.com/Virtual-Finland-Development/monitoring) repository reconfigure alerts etc. and redeploy as need be.
