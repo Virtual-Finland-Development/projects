@@ -20,12 +20,12 @@ To setup the project from scratch, there are a few steps to take and a few prere
   - Give the token a name and select the `repo` scope
   - The intent for of this token is to grant the projects repository to create deployments using composite actions and gh cli tool
 - In the [projects](https://github.com/Virtual-Finland-Development/projects) repository settings page, create a repository secret named `VFD_PROJECTS_PAT` and paste the github personal access token (PAT) there
-- In each repository (phase 1 and/or phase 2) github page, create a new deployment environment that is named to match the intented stack name (eg. dev, staging)
+- In each repository ([Phase 1](./Virtual-Finland-MVP-phase-1.md) and/or [Phase 2](./Virtual-Finland-MVP-phase-2.md)) github page, create a new deployment environment that is named to match the intented stack name (eg. dev, staging)
   - Settings -> Environments -> New environment
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, create a new stack that matches the name of the deployment environment:
     - pulumi stack select <pulumi-organization>/<stack-name> --create
       - eg. `pulumi stack select virtual-finland/dev --create`
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, manually deploy the stack:
     - `pulumi up`
-- In the [projects](https://github.com/Virtual-Finland-Development/projects) repository github actions page run the phase 1 or phase 2 deployment
+- In the [projects](https://github.com/Virtual-Finland-Development/projects) repository github actions page run the [Phase 1](./Virtual-Finland-MVP-phase-1.md) or [Phase 2](./Virtual-Finland-MVP-phase-2.md) deployment
 - In the [monitoring](https://github.com/Virtual-Finland-Development/monitoring) repository reconfigure alerts etc. and redeploy as need be.
