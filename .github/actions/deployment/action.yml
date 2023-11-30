@@ -30,3 +30,12 @@ runs:
     - name: Wait for the deployment workflow to finish
       run: gh run watch -R ${{ inputs.organization }}/${{ inputs.repository }} ${{ steps.status.outputs.job-id }}
       shell: bash
+    - name: Check if the deployment workflow succeeded and fail if bad status
+      id: deployment-status
+      run: |
+        STATUS=$(gh run view ${{ steps.status.outputs.job-id }} -R ${{ inputs.organization }}/${{ inputs.repository }} --jq .conclusion)
+        if [ "$STATUS" != "success" ]; then
+          echo "Deployment workflow failed"
+          exit 1
+        fi        
+      shell: bash
