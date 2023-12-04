@@ -18,7 +18,7 @@ To setup the project from scratch, there are a few steps to take and a few prere
 - Create a new github personal access token (PAT) to be used in the github actions
   - Settings -> Developer settings -> Personal access tokens -> Generate new token
   - Give the token a name and select the `repo` scope
-  - The intent for of this token is to grant the projects repository to create deployments using composite actions and gh cli tool
+  - The intent of this token is to grant access to the projects repository composite actions to use github cli tool to initiate deployments on other organization repositories
 - In the [projects](https://github.com/Virtual-Finland-Development/projects) repository settings page, create a repository secret named `VFD_PROJECTS_PAT` and paste the github personal access token (PAT) there
 - In each repository ([Phase 1](./Virtual-Finland-MVP-phase-1.md) and/or [Phase 2](./Virtual-Finland-MVP-phase-2.md)) github page, create a new deployment environment that is named to match the intented stack name (eg. dev, staging)
   - Settings -> Environments -> New environment
