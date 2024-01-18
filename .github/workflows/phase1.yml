@@ -31,7 +31,7 @@ jobs:
         with:
           environment: ${{ inputs.environment }}
           repository: infrastructure
-          workflow: test.yml
+          workflow: deploy-to-environment.yml
   alerts:
     name: "Alerts on ${{ inputs.environment }}"
     runs-on: ubuntu-latest
