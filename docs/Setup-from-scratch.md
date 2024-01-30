@@ -2,7 +2,7 @@
 
 To setup the project from scratch, there are a few steps to take and a few prerequirements. 
 
-## Prerequirements
+## Pre-requirements
 
 - A pulumi account with an organization
 - Locally installed pulumi cli tool
