@@ -43,7 +43,7 @@ To setup the project from scratch, there are a few steps to take and a few pre-r
 
   - If there is a custom domain name configured with the [Access Finland MVP](https://github.com/Virtual-Finland-Development/access-finland) deployments live environment, the initial deployment flow of the Access Finland MVP app will fail at the step `Initial deployment domain check` as the created SSL-certificates need verification that takes some time to actualize. 
   - To continue the `Phase 2` github actions-flow, re-run the flow (for speed, choose the "failed jobs only" option) only after the SSL-certificates have been verified by AWS. Read more at [af-mvp app deployment instructions](https://github.com/Virtual-Finland-Development/access-finland/blob/main/docs/README.af-mvp.deployment.md).
-  - After that deploy the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)-project once more to finish the email service domain name related configurations. Read more at [infrastructure email instructions](https://github.com/Virtual-Finland-Development/infrastructure/blob/main/Docs/README.email-setup.md).
+  - After that, deploy the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)-project once more to finish the email service domain name related configurations. Read more at [infrastructure email instructions](https://github.com/Virtual-Finland-Development/infrastructure/blob/main/Docs/README.email-setup.md).
 
 ### Post-deployment
 
