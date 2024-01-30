@@ -1,6 +1,6 @@
 # Setup from scratch
 
-To setup the project from scratch, there are a few steps to take and a few prerequirements. 
+To setup the project from scratch, there are a few steps to take and a few pre-requirements. 
 
 ## Pre-requirements
 
