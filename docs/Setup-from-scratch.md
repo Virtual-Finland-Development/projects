@@ -36,8 +36,16 @@ To setup the project from scratch, there are a few steps to take and a few prere
 
 ### Projects
 
-- In the [projects](https://github.com/Virtual-Finland-Development/projects) repository github actions page run the [Phase 1](./Virtual-Finland-MVP-phase-1.md) or [Phase 2](./Virtual-Finland-MVP-phase-2.md) deployment
-  - Note: with the Phase 2, if there is a custom domain name configured with the [Access Finland MVP](https://github.com/Virtual-Finland-Development/access-finland) deployments live environment, the initial deployment flow of the Access Finland MVP app will fail at the step `Initial deployment domain check` as the created SSL-certificates need verification that takes some time to actualize. To continue the phase 2 github actions-flow, re-run the flow (for speed, choose the "failed jobs only" option) only after the SSL-certificates have been verified by AWS. Read more at [af-mvp app deployment instructions](https://github.com/Virtual-Finland-Development/access-finland/blob/main/docs/README.af-mvp.deployment.md).
-- For [Phase 2](./Virtual-Finland-MVP-phase-2.md) with a domain name configured, deploy the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) once more to finish the email service configurations. Read more at [infrastructure email instructions](https://github.com/Virtual-Finland-Development/infrastructure/blob/main/Docs/README.email-setup.md).
+- In the [projects](https://github.com/Virtual-Finland-Development/projects) repository github actions page run the [Phase 1](./Virtual-Finland-MVP-phase-1.md) or [Phase 2](./Virtual-Finland-MVP-phase-2.md) deployment.
+- The `Phase 2` includes the `Phase 1`, so there is no need to run the `Phase 1` deployment if the `Phase 2` is run.
+
+#### Phase 2 specifics
+
+  - If there is a custom domain name configured with the [Access Finland MVP](https://github.com/Virtual-Finland-Development/access-finland) deployments live environment, the initial deployment flow of the Access Finland MVP app will fail at the step `Initial deployment domain check` as the created SSL-certificates need verification that takes some time to actualize. 
+  - To continue the `Phase 2` github actions-flow, re-run the flow (for speed, choose the "failed jobs only" option) only after the SSL-certificates have been verified by AWS. Read more at [af-mvp app deployment instructions](https://github.com/Virtual-Finland-Development/access-finland/blob/main/docs/README.af-mvp.deployment.md).
+  - After that deploy the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure)-project once more to finish the email service domain name related configurations. Read more at [infrastructure email instructions](https://github.com/Virtual-Finland-Development/infrastructure/blob/main/Docs/README.email-setup.md).
+
+### Post-deployment
+
 - In the [monitoring](https://github.com/Virtual-Finland-Development/monitoring) repository reconfigure alerts etc. and redeploy as need be.
 - In AWS Console, configure the access credentials to the AWS Cognito user and indentity pool created by the [Access Finland MVP](https://github.com/Virtual-Finland-Development/access-finland) app. Read more at mvp-app [deployment instructions](https://github.com/Virtual-Finland-Development/access-finland/blob/main/docs/README.af-mvp.deployment.md).
