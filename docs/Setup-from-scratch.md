@@ -28,7 +28,7 @@ To setup the project from scratch, there are a few steps to take and a few pre-r
 ### Infrastructure
 
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, create a new stack that matches the name of the deployment environment:
-    - pulumi stack select <pulumi-organization>/<stack-name> --create
+    - pulumi stack select \<pulumi-organization\>/\<stack-name\> --create
       - eg. `pulumi stack select virtualfinland/dev --create`
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, manually deploy the stack:
     - `pulumi up`
