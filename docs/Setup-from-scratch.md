@@ -29,7 +29,7 @@ To setup the project from scratch, there are a few steps to take and a few pre-r
 
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, create a new stack that matches the name of the deployment environment:
     - pulumi stack select <pulumi-organization>/<stack-name> --create
-      - eg. `pulumi stack select virtual-finland/dev --create`
+      - eg. `pulumi stack select virtualfinland/dev --create`
 - In the [infrastructure](https://github.com/Virtual-Finland-Development/infrastructure) repository with a command line tool, manually deploy the stack:
     - `pulumi up`
     - this will create the AWS resources needed for the CI/CD pipeline to work for the rest of the repositories
