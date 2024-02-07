@@ -76,3 +76,8 @@ jobs:
           environment: ${{ inputs.environment }}
           repository: monitoring
           workflow: publish-accessfinland-dashboard-to-environment.yml
+      - uses: Virtual-Finland-Development/projects/.github/actions/deployment@main
+        with:
+          environment: ${{ inputs.environment }}
+          repository: monitoring
+          workflow: deploy-health-checks.yml
